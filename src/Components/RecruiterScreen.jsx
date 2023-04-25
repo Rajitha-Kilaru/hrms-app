@@ -24,7 +24,7 @@ export default function RecruiterScreen() {
   const [resumeError, setResmeError] = useState();
   const [qualiError, setQualiError] = useState();
   const [gradeError, setGradeError] = useState();
-  const [candicateDetails, setCandidateDetails] = useState({
+  const [candidateDetails, setCandidateDetails] = useState({
     candidateName: '',
     qualification: '',
     grade: '',
@@ -37,55 +37,55 @@ export default function RecruiterScreen() {
   const state = useSelector((state) => state.reducers);
   const handleCandFields = (e) => {
     setCandidateDetails({
-      ...candicateDetails,
+      ...candidateDetails,
       [e.target.name]: e.target.value,
     });
   };
   const handleCandDetails = () => {
-    dispatch(candidateDetailsAction(candicateDetails));
+    dispatch(candidateDetailsAction(candidateDetails));
     navigate('/executiveScreen');
   };
   const handleInputOnBlur = () => {
-    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candicateDetails.candidateName)) {
+    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candidateDetails.candidateName)) {
       setCandNameError('Please enter valid Candidate Name');
     } else {
       setCandNameError();
     }
-    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candicateDetails.designation)) {
+    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candidateDetails.designation)) {
       setDesignError('Please enter valid Designation');
     } else {
       setDesignError();
     }
-    if (!new RegExp(/^[0-9]{1,10}$/).test(candicateDetails.ctc)) {
+    if (!new RegExp(/^[0-9]{1,10}$/).test(candidateDetails.ctc)) {
       setCtcError('Please enter valid CTC');
     } else {
       setCtcError('');
     }
-    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candicateDetails.qualification)) {
+    if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candidateDetails.qualification)) {
       setQualiError('Please enter valid Qualification');
     } else {
       setQualiError();
     }
-    if (!new RegExp(/^[a-zA-Z]{1}$/g).test(candicateDetails.grade)) {
+    if (!new RegExp(/^[a-zA-Z]{1}$/g).test(candidateDetails.grade)) {
       setGradeError('Please enter valid Grade');
     } else {
       setGradeError();
     }
     if (
       new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
-        candicateDetails.email
+        candidateDetails.email
       )
     ) {
       setEmailerrormsg();
     } else {
       setEmailerrormsg('Please Enter Valid Email');
     }
-    if (candicateDetails.joiningdate.length > 0) {
+    if (candidateDetails.joiningdate.length > 0) {
       setDateError();
     } else {
       setDateError('Please Enter Valid Date');
     }
-    if (candicateDetails.resume.length > 0) {
+    if (candidateDetails.resume.length > 0) {
       setResmeError();
     } else {
       setResmeError('Please Upload Resume');
@@ -100,7 +100,7 @@ export default function RecruiterScreen() {
           <input
             type="text"
             name="candidateName"
-            value={candicateDetails.candidateName}
+            value={candidateDetails.candidateName}
             onChange={handleCandFields}
             onBlur={handleInputOnBlur}
           />
@@ -114,7 +114,7 @@ export default function RecruiterScreen() {
                 required
                 type="text"
                 name="qualification"
-                value={candicateDetails.qualification}
+                value={candidateDetails.qualification}
                 onChange={handleCandFields}
                 onBlur={handleInputOnBlur}
               />
@@ -126,7 +126,7 @@ export default function RecruiterScreen() {
               <input
                 type="text"
                 name="grade"
-                value={candicateDetails.grade}
+                value={candidateDetails.grade}
                 onChange={handleCandFields}
                 onBlur={handleInputOnBlur}
               />
@@ -140,7 +140,7 @@ export default function RecruiterScreen() {
               <input
                 type="text"
                 name="designation"
-                value={candicateDetails.designation}
+                value={candidateDetails.designation}
                 onChange={handleCandFields}
                 onBlur={handleInputOnBlur}
               />
@@ -151,7 +151,7 @@ export default function RecruiterScreen() {
               <input
                 type="text"
                 name="ctc"
-                value={candicateDetails.ctc}
+                value={candidateDetails.ctc}
                 onChange={handleCandFields}
                 onBlur={handleInputOnBlur}
               />
@@ -164,7 +164,7 @@ export default function RecruiterScreen() {
           <input
             type="date"
             name="joiningdate"
-            value={candicateDetails.joiningdate}
+            value={candidateDetails.joiningdate}
             onChange={handleCandFields}
             onBlur={handleInputOnBlur}
           />
@@ -175,7 +175,7 @@ export default function RecruiterScreen() {
           <input
             type="email"
             name="email"
-            value={candicateDetails.email}
+            value={candidateDetails.email}
             onChange={handleCandFields}
             onBlur={handleInputOnBlur}
           />
@@ -186,7 +186,7 @@ export default function RecruiterScreen() {
           <input
             type="file"
             name="resume"
-            value={candicateDetails.resume}
+            value={candidateDetails.resume}
             onChange={handleCandFields}
             onBlur={handleInputOnBlur}
           />
