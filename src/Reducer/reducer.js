@@ -1,4 +1,4 @@
-import { combineReducers, legacy_createStore as createStore } from 'redux';
+import { combineReducers } from 'redux';
 const initialState = {
   dropdownRoll: '',
   loginData: {},

@@ -6,16 +6,16 @@ import { candidateDetailsAction } from '../Actions/actions';
 export default function RecruiterScreen() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState({
-    nameErr: '',
-    qualiErr: '',
-    gradeErr: '',
-    designErr: '',
-    ctcErr: '',
-    dateErr: '',
-    emailErr: '',
-    resumeErr: '',
-  });
+  // const [errors, setErrors] = useState({
+  //   nameErr: '',
+  //   qualiErr: '',
+  //   gradeErr: '',
+  //   designErr: '',
+  //   ctcErr: '',
+  //   dateErr: '',
+  //   emailErr: '',
+  //   resumeErr: '',
+  // });
   const [candNameError, setCandNameError] = useState();
   const [designError, setDesignError] = useState();
   const [ctcError, setCtcError] = useState();
@@ -35,7 +35,6 @@ export default function RecruiterScreen() {
     resume: '',
   });
   const state = useSelector((state) => state.reducers);
-  console.log('11::', state);
   const handleCandFields = (e) => {
     setCandidateDetails({
       ...candicateDetails,
@@ -44,7 +43,7 @@ export default function RecruiterScreen() {
   };
   const handleCandDetails = () => {
     dispatch(candidateDetailsAction(candicateDetails));
-    // navigate('/executiveScreen');
+    navigate('/executiveScreen');
   };
   const handleInputOnBlur = () => {
     if (!new RegExp(/^[a-zA-Z]{1,10}$/g).test(candicateDetails.candidateName)) {
